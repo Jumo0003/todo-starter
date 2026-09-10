@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/******light vs dark mode*****/
+
+:root {
+  --fontMain: "Instrument Serif", serif;
+  --bg: #f3f3f3;
+  --tekst: #010101;
+  --knapBg: #010101;
+  --knapTekst: #f3f3f3;
+  --accent: hotpink;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fontMain: "Instrument Serif", serif;
+    --bg: #151010;
+    --tekst: #ffe6e6;
+    --knapBg: #ffe6e6;
+    --knapTekst: black;
+    --accent: hotpink;
+  }
+}
+
+:root[data-theme="dark"] {
+  --fontMain: "Instrument Serif", serif;
+  --bg: #151010;
+  --tekst: #ffe6e6;
+  --knapBg: #ffe6e6;
+  --knapTekst: black;
+  --accent: hotpink;
+}
+
+body {
+  background-color: var(--bg);
+  padding: 16px;
+}
+
+p {
+  color: var(--tekst);
+  font-family: var(--fontMain);
+  padding: 5px;
+}
+
+h2 {
+  color: var(--tekst);
+  font-family: var(--fontMain);
+  font-size: clamp(28px, 8vw, 48px); /****gør at teksten aldrig bliver mindre end 28 eller større en 48, det skalere med sk***/
+  padding: 15px;
+}
+h3 {
+  color: var(--tekst);
+  font-family: var(--fontMain);
+  padding: 15px;
+  margin-top: 40px;
+}
+
+.linje {
+  border: none;
+  height: 4px;
+  background-color: var(--tekst);
+  border-radius: 2px;
+  margin: 8px 0 24px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/***så teksten kan krympe på en lille skørm***/
+li p {
+  flex: 1;
+  min-width: 0;
+  padding: 0;
+}
+
+/*******font*****/
+.instrument-serif-regular {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.instrument-serif-regular-italic {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/*******layout********/
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task_modal {
+  border: none;
+  border-radius: 8%;
+  padding: 15px;
+  align-items: center;
+  margin: auto;
+  background-color: var(--bg);
+  color: var(--tekst);
+}
+.task_modal[open] {
+  display: grid;
+}
+
+.task_modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.tasks,
+.done_tasks {
+  width: 100%;
+  max-width: 600px;
+  list-style: none;
+}
+
+/*****Knap styling******/
+
+button {
+  padding: 15px;
+  border-radius: 8%;
+  background-color: var(--knapBg);
+  border: none;
+  color: var(--knapTekst);
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--accent);
+  color: white;
+}
+
+.delete_btn {
+  margin-left: auto;
+}
+
+input {
+  padding: 15px;
+  border-radius: 8%;
+  background-color: var(--knapBg);
+  border: none;
+  color: var(--knapTekst);
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none; /**********boilerplate remove/optimize   vv   ****/
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.isOutdoor {
+  padding: 15px;
+  border-radius: 8%;
+  background-color: var(--knapBg);
+  border: none;
+  color: var(--knapTekst);
+  padding: 12px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+/*****check box********/
+input[type="checkbox"] {
+  background-color: var(--knapBg);
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 2px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "✕";
+  font-size: 20px;
+}
+
+.udendoorsCheck {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

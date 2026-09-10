@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    li {
+      display: flex;
+      flex-wrap: wrap
+    }
+  </style>
+  <script src="index.js" defer></script>
+</head>
+
+<body>
+
+
+
+  <div class="top">
+    <h2>TO DO</h2>
+    <button class="theme_btn">🌙</button>
+    <button class="open_modal">Add Task</button>
+    <dialog class="task_modal"><input type="text" class="task_text" />
+      <!--opgave navn knappen-->
+      <input type="date" class="task_date"> <!--datoknappen-->
+      <div class="udendoorsCheck">
+        <label for="outdoor">Outdoors?</label>
+        <input type="checkbox" name="outdoor" class="isOutdoor" id="outdoor"> <!--udendørsknappen-->
+      </div>
+      <button class="create_task">Add</button>
+      <button class="close_btn">X</button>
+      <p class="fejl"></p>
+    </dialog>
+
+
+
+  </div>
+  <hr class="linje">
+
+  <ul class="tasks"></ul>
+  <h3>Done</h3>
+  <hr class="linje">
+  <ul class="done_tasks"></ul>
+</body>
+
+</html>
